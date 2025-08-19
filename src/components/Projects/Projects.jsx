@@ -1,24 +1,40 @@
-// src/components/Projects/Projects.jsx - Template
-import './Projects.css';
+// src/components/Projects/Projects.jsx
+import React, { useState } from "react";
+import ProjectCard from "./ProjectCard";
+import { projects } from "../../data/projectsData";
+import "./Projects.css";
 
-function Projects() {
+export default function Projects() {
+  const [filter, setFilter] = useState("All");
+
+  const technologies = ["All", ...new Set(projects.flatMap(p => p.tech))];
+
+  const filteredProjects =
+    filter === "All"
+      ? projects
+      : projects.filter(p => p.tech.includes(filter));
+
   return (
-    <section id="projects" className="projects section">
-      <div className="container">
-        <h2 className="section-title">My Projects</h2>
-        <p className="section-subtitle">
-          Here are some of the projects I've worked on recently.
-        </p>
-        
-        {/* TODO: นักศึกษาเพิ่ม project list ที่นี่ */}
-        <div className="projects-grid">
-          <div className="project-placeholder">
-            <p>Add your projects here</p>
-          </div>
-        </div>
+    <section id="projects" className="projects-section">
+      <h2>Projects</h2>
+
+      <div className="filter-buttons">
+        {technologies.map((tech, i) => (
+          <button
+            key={i}
+            className={filter === tech ? "active" : ""}
+            onClick={() => setFilter(tech)}
+          >
+            {tech}
+          </button>
+        ))}
+      </div>
+
+      <div className="projects-grid">
+        {filteredProjects.map(project => (
+          <ProjectCard key={project.id} project={project} />
+        ))}
       </div>
     </section>
   );
 }
-
-export default Projects;
