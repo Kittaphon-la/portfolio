@@ -1,6 +1,7 @@
 // src/components/About/About.jsx
 import { Code, Palette, Zap, Heart } from 'lucide-react';
 import './About.css';
+import john117 from '../../assets/images/117.jpg';
 
 function About() {
   const skills = [
@@ -17,14 +18,14 @@ function About() {
           <div className="about-text">
             <h2 className="section-title">About Me</h2>
             <p className="about-description">
-              Hello! I'm a passionate web developer with a love for creating 
-              beautiful and functional user experiences. I enjoy turning complex 
-              problems into simple, elegant solutions.
+              สวัสดีครับ ผมชื่อ บาส ผมหลงใหลในการเปลี่ยนไอเดียให้กลายเป็นเว็บไซต์ที่ใช้งานได้จริง 
+              ผมเริ่มต้นเส้นทางนี้ด้วยการเรียนรู้ HTML, CSS และ JavaScript และตอนนี้กำลังสนุกกับการใช้ 
+              React เพื่อสร้างส่วนหน้าเว็บที่มีประสิทธิภาพ
             </p>
             <p className="about-description">
-              When I'm not coding, you can find me exploring new technologies, 
-              reading tech blogs, or working on personal projects that challenge 
-              my creativity and technical skills.
+              ผมยังอยู่ในช่วงของการเรียนรู้และฝึกฝนอยู่ครับ บางครั้งก็เจอปัญหาที่ต้องใช้เวลาแก้ 
+              แต่ผมก็ไม่เคยท้อ ผมเชื่อว่าทุกปัญหามีทางออกเสมอ และพร้อมที่จะรับมือกับความท้าทายใหม่ๆ 
+              เพื่อพัฒนาตัวเองให้เก่งขึ้นในทุก ๆ วันครับ
             </p>
             
             <div className="skills-grid">
@@ -57,8 +58,7 @@ function About() {
           <div className="about-image">
             <div className="image-placeholder">
               <div className="placeholder-content">
-                <p>Your Photo Here</p>
-                <small>Add your profile picture</small>
+                <img src={john117} alt="Profile Photo" className="profile-photo" />
               </div>
             </div>
           </div>
